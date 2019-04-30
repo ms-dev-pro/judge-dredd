@@ -20,11 +20,11 @@ def mainRoute():
 def loginRoute():
     if request.method == 'POST':
         user = request.get_json()
-        #print(user['username'])
-        #print(user['password'])
+        print(user['username'])
+        print(user['password'])
         test = ldap.bind_user(user['username'], user['password'])
         if test is None or user['password'] == '':
-            return 'Invalid credentials'
+            return 'Invalid credentials heyheyhey'
         else:
             return redirect('/logged')
 
