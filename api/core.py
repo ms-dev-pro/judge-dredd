@@ -6,10 +6,13 @@ import json
 
 app = Flask(__name__)
 
-app.config['LDAP_BASE_DN'] = 'OU=Users,DC=epsi,DC=intra'
+app.debug = True
+
 app.config['LDAP_HOST'] = 'controler.epsi.intra'
-app.config['LDAP_USERNAME'] = 'CN=seb, OU=Users, DC=epsi,DC=intra'
+app.config['LDAP_BASE_DN'] = 'OU=Users,dc=epsi,dc=intra'
+app.config['LDAP_USERNAME'] = 'CN=seb,OU=Users,DC=epsi,DC=intra'
 app.config['LDAP_PASSWORD'] = 'P@ssw0rd'
+
 
 ldap = LDAP(app)
 
@@ -17,19 +20,10 @@ ldap = LDAP(app)
 def mainRoute():
     return handleResponse(200, 'text/plain', 'Welcome to Judge-Dredd API !')
 
-@app.route('/login', methods = ['POST'])
+@app.route('/login', methods = ['GET'])
+@ldap.basic_auth_required
 def loginRoute():
-    if request.method == 'POST':
-        print("POST :D")
-        user = request.get_json()
-        print(user['username'])
-        print(user['password'])
-        print(ldap.get_object_details(user=user['username'], dn_only=True))
-        test = ldap.bind_user(user['username'], user['password'])
-        if test is None or user['password'] == '':
-            return 'Invalid credentials heyheyhey'
-        else:
-            return redirect('/logged')
+    return 'Welcome, {0}!'.format(g.ldap_username)
 
 @app.route('/logged')
 @ldap.login_required
