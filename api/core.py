@@ -12,7 +12,7 @@ app.config['LDAP_HOST'] = 'controler.epsi.intra'
 app.config['LDAP_BASE_DN'] = 'cn=Users,dc=epsi,dc=intra'
 app.config['LDAP_USERNAME'] = 'cn=Administrator,cn=Users,dc=epsi,dc=intra'
 app.config['LDAP_PASSWORD'] = 'P@ssw0rd'
-app.config['LDAP_GROUP_OBJECT_FILTER'] = '(sAMAccountName=%s)'
+app.config['LDAP_USER_OBJECT_FILTER'] = '(sAMAccountName=%s)'
 
 
 ldap = LDAP(app)
