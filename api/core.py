@@ -24,6 +24,7 @@ def loginRoute():
         user = request.get_json()
         print(user['username'])
         print(user['password'])
+        print(ldap.get_object_details(user=user['username'], dn_only=True))
         test = ldap.bind_user(user['username'], user['password'])
         if test is None or user['password'] == '':
             return 'Invalid credentials heyheyhey'
