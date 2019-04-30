@@ -9,8 +9,8 @@ app = Flask(__name__)
 app.debug = True
 
 app.config['LDAP_HOST'] = 'controler.epsi.intra'
-app.config['LDAP_BASE_DN'] = 'OU=Users,dc=epsi,dc=intra'
-app.config['LDAP_USERNAME'] = 'CN=seb,OU=Users,DC=epsi,DC=intra'
+app.config['LDAP_BASE_DN'] = 'OU=I4,dc=epsi,dc=intra'
+app.config['LDAP_USERNAME'] = 'CN=remote,OU=Users,DC=epsi,DC=intra'
 app.config['LDAP_PASSWORD'] = 'P@ssw0rd'
 
 
