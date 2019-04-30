@@ -20,6 +20,7 @@ def mainRoute():
 @app.route('/login', methods = ['POST'])
 def loginRoute():
     if request.method == 'POST':
+        print("POST :D")
         user = request.get_json()
         print(user['username'])
         print(user['password'])
