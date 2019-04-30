@@ -24,7 +24,7 @@ def mainRoute():
 @app.route('/login', methods = ['GET'])
 @ldap.basic_auth_required
 def loginRoute():
-    return 'Welcome, {0}!'.format(g.ldap_username)
+    return 'Welcome !'
 
 @app.route('/logged')
 @ldap.login_required
