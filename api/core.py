@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 
 app.config['LDAP_BASE_DN'] = 'OU=I4,dc=epsi,dc=intra'
-app.config['LDAP_USERNAME'] = 'CN=Administrator,OU=Users,DC=epsi,DC=intra'
+app.config['LDAP_USERNAME'] = 'CN=seb,OU=Users,DC=epsi,DC=intra'
 app.config['LDAP_PASSWORD'] = 'P@ssw0rd'
 
 ldap = LDAP(app)
