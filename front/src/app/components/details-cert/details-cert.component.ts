@@ -28,7 +28,7 @@ export class DetailsCertComponent implements OnInit {
 
     private getCsrDetails() {
         this.http.get(
-            'http://192.168.33.14:8080/details?mode=' + this.mode + '&id=' + this.id,
+            'http://192.168.33.14:8080/details-cert?mode=' + this.mode + '&id=' + this.id,
             {observe: 'response'}
         ).subscribe(res => {
             if (res.status === 200) {
