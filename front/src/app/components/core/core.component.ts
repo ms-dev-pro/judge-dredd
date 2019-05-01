@@ -19,7 +19,7 @@ export class CoreComponent implements OnInit {
 
   logout() {
     this.http.get(
-        'http://192.168.33.14/logout',
+        'http://192.168.33.14:8080/logout',
         {observe: 'response'})
         .subscribe(res => {
           if(res.status === 200){
