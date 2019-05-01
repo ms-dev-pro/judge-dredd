@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.username.nativeElement.value);
-    console.log(this.password.nativeElement.value);
-    this.http.post( environment.api + '/login', {
-      login: 'foo',
-      password: 'bar'
+    const userObject = this.username.nativeElement.value;
+    const passwdObject = this.password.nativeElement.value;
+    this.http.post( '192.168.33.14:8080/login', {
+      user: userObject,
+      passwd: passwdObject,
     }).subscribe(res => {
       console.log(res);
     });

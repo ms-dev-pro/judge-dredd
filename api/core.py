@@ -43,8 +43,8 @@ def login():
     if g.user:
         return redirect(url_for('index'))
     if request.method == 'POST':
-        user = request.form['user']
-        passwd = request.form['passwd']
+        user = request.data['user']
+        passwd = request.data['passwd']
         test = ldap.bind_user(user, passwd)
         if test is None or passwd == '':
             return handleErrors(422, "invalid_credentials")
