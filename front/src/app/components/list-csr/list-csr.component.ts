@@ -20,6 +20,7 @@ export class ListCsrComponent implements OnInit {
 
     ngOnInit() {
         this.getPendingCertificates();
+        this.getRejectedCertificates();
     }
 
     private getPendingCertificates() {
