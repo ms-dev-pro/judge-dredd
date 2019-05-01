@@ -5,7 +5,6 @@ import {CoreComponent} from './components/core/core.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: '**', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'core', component: CoreComponent}
 ];
