@@ -44,7 +44,6 @@ def login():
         return redirect(url_for('index'))
     if request.method == 'POST':
         login = json.loads(request.data)
-        print(login)
         user = login['user']
         passwd = login['passwd']
         test = ldap.bind_user(user, passwd)
@@ -52,8 +51,7 @@ def login():
             return handleErrors(422, "invalid_credentials")
         else:
             session['user_id'] = user
-            print(user)
-            return handleResponse(200, 'text/plain', 'successful_login')
+            return handleResponse(200, 'application/json', {'msg': 'sucessful_login', 'user': user})
     return """<form action="" method="post">
                 user: <input name="user"><br>
                 password:<input type="password" name="passwd"><br>
