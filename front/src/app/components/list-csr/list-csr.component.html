@@ -7,8 +7,14 @@
     <div class="list-csr-container">
         <mat-list>
             <h3 mat-subheader>Demandes en attentes</h3>
-            <mat-list-item *ngFor="let csr of certificates">
-                <mat-icon mat-list-icon>note</mat-icon>
+            <mat-list-item *ngFor="let csr of pendingCertificates">
+                <mat-icon style="color:orange" mat-list-icon>note</mat-icon>
+                <h4 mat-line>{{csr}}</h4>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <h3 mat-subheader>Demandes rejetées</h3>
+            <mat-list-item *ngFor="let csr of rejectedCertificates">
+                <mat-icon style="color:red" mat-list-icon>note</mat-icon>
                 <h4 mat-line>{{csr}}</h4>
             </mat-list-item>
         </mat-list>

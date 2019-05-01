@@ -9,7 +9,8 @@ import {Router} from '@angular/router';
 })
 export class ListCsrComponent implements OnInit {
 
-    public certificates;
+    public pendingCertificates;
+    public rejectedCertificates;
 
     constructor(
         private http: HttpClient,
@@ -24,7 +25,15 @@ export class ListCsrComponent implements OnInit {
     private getPendingCertificates() {
         this.http.get('http://192.168.33.14:8080/list-pending-csr', {observe: 'response'}).subscribe(res => {
             if (res.status === 200) {
-                this.certificates = res.body;
+                this.pendingCertificates = res.body;
+            }
+        });
+    }
+
+    private getRejectedCertificates() {
+        this.http.get('http://192.168.33.14:8080/list-rejected-csr', {observe: 'response'}).subscribe(res => {
+            if (res.status === 200) {
+                this.rejectedCertificates = res.body;
             }
         });
     }

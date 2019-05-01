@@ -76,9 +76,13 @@ def createPendingCsr():
 @app.route('/list-pending-csr', methods=['GET'])
 @ldap.login_required
 def listPendingCsr():
-    print(listPendingCertificates())
-    print(json.dumps(listPendingCertificates()))
     return handleResponse(200, 'application/json', json.dumps(listPendingCertificates()))
+
+@app.route('/list-rejected-csr', methods=['GET'])
+@ldap.login_required
+def listRejectedCsr():
+    return handleResponse(200, 'application/json', json.dumps(listRejectedCertificates()))
+
 
 
 def handleErrors(statuscode, errorCode):
