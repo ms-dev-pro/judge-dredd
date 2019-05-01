@@ -41,16 +41,18 @@ def mainRoute():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if g.user:
-        return redirect(url_for('index'))
+        print(g.user)
+        return handleResponse(200, 'text/plain', 'successful_login')
     if request.method == 'POST':
         user = request.form['user']
         passwd = request.form['passwd']
         test = ldap.bind_user(user, passwd)
         if test is None or passwd == '':
-            return 'Invalid credentials'
+            return handleErrors(422, "invalid_credentials")
         else:
             session['user_id'] = request.form['user']
-            return redirect('/')
+            print(g.user)
+            return handleResponse(200, 'text/plain', 'successful_login')
     return """<form action="" method="post">
                 user: <input name="user"><br>
                 password:<input type="password" name="passwd"><br>
@@ -61,7 +63,8 @@ def login():
 
 def handleErrors(statuscode, errorCode):
     switcher = {
-        "defaultError": "Une erreur est survenue !",
+        "default_error": "Une erreur est survenue !",
+        "invalid_credentials" : "Mauvaise combinaison login/password."
     }
     content = switcher.get(errorCode, "Wrong errorCode")
     return (handleResponse(statuscode, 'text/plain', content))
