@@ -1,0 +1,12 @@
+.global-container{
+    padding-top: 50px;
+}
+
+.login-container{
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    width: 25%;
+    margin: auto;
+
+}
