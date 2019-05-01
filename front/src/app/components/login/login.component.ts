@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   login() {
     const userObject = this.username.nativeElement.value;
     const passwdObject = this.password.nativeElement.value;
+    console.log(environment.api + '/login');
     this.http.post( 'http://192.168.33.14:8080/login', {
       user: userObject,
       passwd: passwdObject,
