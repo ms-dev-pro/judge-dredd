@@ -71,6 +71,7 @@ def logout():
 def createPendingCsr():
     content = json.loads(request.data)
     createCsr(session['user_id'], content['content'])
+    return handleResponse(200, 'application/json', "{\"msg\": \"successful_file_creation\"}")
 
 
 def handleErrors(statuscode, errorCode):

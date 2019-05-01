@@ -20,8 +20,12 @@ def listRevokedCertificates():
     return listFiles("./certificates/revoked")
 
 def createCsr(username, content):
+    script_dir = os.path.dirname(__file__)  # <-- absolute dir the script is in
     date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    f = open(username+date+".csr", "w+")
+    rel_path = username+date+".csr"
+    abs_file_path = os.path.join(script_dir, rel_path)
+
+    f = open(abs_file_path, "w+")
     f.write(content)
     f.close()
 
