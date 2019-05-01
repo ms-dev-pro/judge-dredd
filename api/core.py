@@ -43,6 +43,11 @@ def login():
     if g.user:
         return redirect(url_for('index'))
     if request.method == 'POST':
+        print(request)
+        print("_____")
+        print(request.data)
+        print("_____")
+
         user = request.data['user']
         passwd = request.data['passwd']
         test = ldap.bind_user(user, passwd)
