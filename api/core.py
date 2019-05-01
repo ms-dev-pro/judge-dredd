@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 
 app.debug = True
-
+app.secret_key = "developmentsecretkey"
 app.config['LDAP_HOST'] = 'controler.epsi.intra'
 app.config['LDAP_BASE_DN'] = 'cn=Users,dc=epsi,dc=intra'
 app.config['LDAP_USERNAME'] = 'cn=Administrator,cn=Users,dc=epsi,dc=intra'
