@@ -4,7 +4,10 @@
 
 .details-cert-container{
     background-color: white;
-    padding: 20px;
     width: 75%;
     margin: auto;
+}
+
+table{
+    width: 100%;
 }
