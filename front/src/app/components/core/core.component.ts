@@ -22,7 +22,7 @@ export class CoreComponent implements OnInit {
         'http://192.168.33.14:8080/logout',
         {observe: 'response'})
         .subscribe(res => {
-          if(res.status === 200){
+          if (res.status === 200) {
             this.router.navigateByUrl('/login');
           }
     });

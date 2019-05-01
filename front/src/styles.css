@@ -10,3 +10,7 @@ body,
 .global-container{
     background-color: #0072c6;
 }
+
+.spacer {
+    flex: 1 1 auto;
+}
