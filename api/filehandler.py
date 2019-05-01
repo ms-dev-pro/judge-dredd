@@ -22,7 +22,7 @@ def listRevokedCertificates():
 def createCsr(username, content):
     script_dir = os.path.dirname(__file__)  # <-- absolute dir the script is in
     date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    rel_path = username+date+".csr"
+    rel_path = "certificates/pending/" + username+date+".csr"
     abs_file_path = os.path.join(script_dir, rel_path)
 
     f = open(abs_file_path, "w+")
