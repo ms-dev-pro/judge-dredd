@@ -3,7 +3,11 @@ mat-grid-list{
     font-weight: bold;
 }
 
-.tile-content{
+.add-csr-tile-content{
     background-color: #6DEC00;
+    padding: 50px;
+}
+.list-csr-tile-content{
+    background-color: #3F51B5;
     padding: 50px;
 }

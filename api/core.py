@@ -73,6 +73,11 @@ def createPendingCsr():
     createCsr(session['user_id'], content['content'])
     return handleResponse(200, 'application/json', "{\"msg\": \"successful_file_creation\"}")
 
+@app.route('/list-pending-csr', methods=['GET'])
+@ldap.login_required
+def listPendingCsr():
+    return handleResponse(200, 'application/json', "{\"pending_csr_list\" :" + listPendingCertificates() + "}")
+
 
 def handleErrors(statuscode, errorCode):
     switcher = {

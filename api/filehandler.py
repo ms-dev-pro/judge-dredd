@@ -13,6 +13,9 @@ def listFiles(path):
 def listPendingCertificates():
     return listFiles("./certificates/pending")
 
+def listRejectedCertificates():
+    return listFiles("./certificates/rejected")
+
 def listIssuedCertificates():
     return listFiles("./certificates/issued")
 
@@ -20,11 +23,10 @@ def listRevokedCertificates():
     return listFiles("./certificates/revoked")
 
 def createCsr(username, content):
-    script_dir = os.path.dirname(__file__)  # <-- absolute dir the script is in
+    script_dir = os.path.dirname(__file__)
     date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    rel_path = "certificates/pending/" + username+date+".csr"
+    rel_path = "certificates/pending/" + username + "_" +date+".csr"
     abs_file_path = os.path.join(script_dir, rel_path)
-
     f = open(abs_file_path, "w+")
     f.write(content)
     f.close()

@@ -6,13 +6,18 @@
   </mat-toolbar>
 
   <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile class="add-csr-tile">
-      <div class="tile-content clickable" (click)="goTo('/new')">
+    <mat-grid-tile>
+      <div class="add-csr-tile-content clickable" (click)="goTo('/new')">
         <mat-icon class="mat-icon vertical-middle" aria-hidden="false" aria-label="New csr">note_add</mat-icon>
         <span class="vertical-middle text-next-icon">Déposer une demande de certificat</span>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="list-csr-tile-content clickable" (click)="goTo('/list-csr')">
+        <mat-icon class="mat-icon vertical-middle" aria-hidden="false" aria-label="New csr">list</mat-icon>
+        <span class="vertical-middle text-next-icon">Voir les demandes de certificat</span>
+      </div>
+    </mat-grid-tile>
     <mat-grid-tile>3</mat-grid-tile>
     <mat-grid-tile>4</mat-grid-tile>
   </mat-grid-list>

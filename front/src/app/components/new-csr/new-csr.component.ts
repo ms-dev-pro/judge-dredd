@@ -27,7 +27,8 @@ export class NewCsrComponent implements OnInit {
             },
             {observe: 'response'}).subscribe(res => {
             if (res.status === 200) {
-                alert('OUYEAH');
+                alert('Votre demande a bien été prise en compte.');
+                this.content.nativeElement.value = '';
             }
         });
     }
