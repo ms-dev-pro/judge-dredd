@@ -11,7 +11,7 @@ import {
     MatGridListModule,
     MatIconModule,
     MatInputModule, MatListModule,
-    MatSelectModule,
+    MatSelectModule, MatTableModule,
     MatToolbarModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
@@ -42,6 +42,7 @@ import { DetailsCertComponent } from './components/details-cert/details-cert.com
         MatIconModule,
         MatGridListModule,
         MatListModule,
+        MatTableModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

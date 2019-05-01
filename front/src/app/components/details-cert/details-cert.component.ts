@@ -11,6 +11,8 @@ export class DetailsCertComponent implements OnInit {
     private id: string;
     private mode: string;
     public cert;
+    displayedColumns: string[] = ['key', 'value'];
+    public dataSource: any[];
 
     constructor(
         private route: ActivatedRoute,
@@ -32,9 +34,23 @@ export class DetailsCertComponent implements OnInit {
             {observe: 'response'}
         ).subscribe(res => {
             if (res.status === 200) {
-                console.log(res.body);
+                this.cert = res.body;
+                this.dataSource = this.certToDataSource(this.cert)
             }
         });
+    }
+
+    private certToDataSource(cert) {
+        const dataSource = [];
+        dataSource.push({key: 'Country', value: cert.C});
+        dataSource.push({key: 'Common name', value: cert.CN});
+        dataSource.push({key: 'City/Locality', value: cert.L});
+        dataSource.push({key: 'Organization', value: cert.O});
+        dataSource.push({key: 'Organizational Unit', value: cert.OU});
+        dataSource.push({key: 'State/Province', value: cert.ST});
+        dataSource.push({key: 'Key algorithm', value: cert.key_algo});
+        dataSource.push({key: 'Key size', value: cert.key_size});
+        return dataSource;
     }
 
 }
