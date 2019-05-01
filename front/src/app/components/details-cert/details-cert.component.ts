@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -16,6 +16,7 @@ export class DetailsCertComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private http: HttpClient,
     ) {
     }
@@ -53,4 +54,7 @@ export class DetailsCertComponent implements OnInit {
         return dataSource;
     }
 
+    goTo(dest: string) {
+        this.router.navigateByUrl(dest);
+    }
 }
