@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-list-csr',
@@ -11,7 +12,8 @@ export class ListCsrComponent implements OnInit {
     public certificates;
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private router: Router,
     ) {
     }
 
@@ -25,5 +27,9 @@ export class ListCsrComponent implements OnInit {
                 this.certificates = res.body;
             }
         });
+    }
+
+    goTo(dest: string) {
+        this.router.navigateByUrl(dest);
     }
 }

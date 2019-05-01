@@ -1,9 +1,16 @@
 <div class="global-container">
-  <mat-list>
-    <h3 mat-subheader>Demandes en attentes</h3>
-    <mat-list-item *ngFor="let csr of certificates">
-      <mat-icon mat-list-icon>note</mat-icon>
-      <h4 mat-line>{{csr}}</h4>
-    </mat-list-item>
-  </mat-list>
+
+    <mat-toolbar color="primary">
+        <mat-icon class="mat-icon clickable" aria-hidden="false" aria-label="back" (click)="goTo('/core')">arrow_back</mat-icon>
+    </mat-toolbar>
+
+    <div class="list-csr-container">
+        <mat-list>
+            <h3 mat-subheader>Demandes en attentes</h3>
+            <mat-list-item *ngFor="let csr of certificates">
+                <mat-icon mat-list-icon>note</mat-icon>
+                <h4 mat-line>{{csr}}</h4>
+            </mat-list-item>
+        </mat-list>
+    </div>
 </div>
