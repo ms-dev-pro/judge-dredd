@@ -1,4 +1,4 @@
-from flask import Flask, request, Response, redirect, session, url_for
+from flask import Flask, g, request, Response, redirect, session, url_for
 from flask_simpleldap import LDAP
 
 import uuid
