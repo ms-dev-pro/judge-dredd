@@ -30,8 +30,14 @@ def createCsr(username, content):
     f.write(content)
     f.close()
 
-if __name__ == "__main__":
-    listPendingCertificates()
+def readCert(certState, certName):
+    filePath = "certificates/" + certState + "/" + certName
+    f = open(filePath, "r")
+    return f.read()
 
+if __name__ == "__main__":
+    #listPendingCertificates()
+    f = open("certificates/pending/my-pending-cert.csr", "r")
+    print(f.read())
     #listIssuedCertificates()
     #listRevokedCertificates()

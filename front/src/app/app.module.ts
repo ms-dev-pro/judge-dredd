@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CoreComponent } from './components/core/core.component';
 import { NewCsrComponent } from './components/new-csr/new-csr.component';
 import { ListCsrComponent } from './components/list-csr/list-csr.component';
+import { DetailsCertComponent } from './components/details-cert/details-cert.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListCsrComponent } from './components/list-csr/list-csr.component';
     LoginComponent,
     CoreComponent,
     NewCsrComponent,
-    ListCsrComponent
+    ListCsrComponent,
+    DetailsCertComponent
   ],
     imports: [
         BrowserModule,

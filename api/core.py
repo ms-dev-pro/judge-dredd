@@ -4,6 +4,7 @@ from flask_simpleldap import LDAP
 import uuid
 import json
 
+from certhandler import *
 from filehandler import *
 
 app = Flask(__name__)
@@ -83,6 +84,12 @@ def listPendingCsr():
 def listRejectedCsr():
     return handleResponse(200, 'application/json', json.dumps(listRejectedCertificates()))
 
+@app.route('/details-cert', methods=['GET'])
+@ldap.login_required
+def getDetailsCert():
+    state = request.args.get('state')
+    id = request.args.get('id')
+    return handleResponse(200, 'application/json', json.dumps(parseCert(state, id)))
 
 
 def handleErrors(statuscode, errorCode):
