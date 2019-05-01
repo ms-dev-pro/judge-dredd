@@ -1,4 +1,4 @@
-from flask import Flask, g, request, Response, redirect, session, url_for
+from flask import Flask, g, request, Response, redirect, session, url_for, jsonify
 from flask_simpleldap import LDAP
 
 import uuid
@@ -76,7 +76,7 @@ def createPendingCsr():
 @app.route('/list-pending-csr', methods=['GET'])
 @ldap.login_required
 def listPendingCsr():
-    return handleResponse(200, 'application/json', "{\"pending_csr_list\" :" + listPendingCertificates() + "}")
+    return handleResponse(200, 'application/json', jsonify(listPendingCertificates()))
 
 
 def handleErrors(statuscode, errorCode):
