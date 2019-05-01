@@ -77,8 +77,8 @@ def createPendingCsr():
 @ldap.login_required
 def listPendingCsr():
     print(listPendingCertificates())
-    print(jsonify(listPendingCertificates()))
-    return handleResponse(200, 'application/json', ''.join(listPendingCertificates()))
+    print(json.dumps(listPendingCertificates()))
+    return handleResponse(200, 'application/json', json.dumps(listPendingCertificates()))
 
 
 def handleErrors(statuscode, errorCode):
