@@ -6,7 +6,6 @@ def listFiles(path):
     filesToReturn = []
     for root, dirs, files in os.walk(path):
         for filename in files:
-            print(os.path.join(root, filename))
             filesToReturn.append(filename)
     return filesToReturn
 

@@ -78,7 +78,7 @@ def createPendingCsr():
 def listPendingCsr():
     print(listPendingCertificates())
     print(jsonify(listPendingCertificates()))
-    return handleResponse(200, 'application/json', jsonify(listPendingCertificates()))
+    return handleResponse(200, 'application/json', ''.join(listPendingCertificates()))
 
 
 def handleErrors(statuscode, errorCode):
