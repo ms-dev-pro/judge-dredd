@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
         {observe: 'response'} ).subscribe(res => {
       // @ts-ignore
       console.log(res);
+      console.log(res.status);
+      console.log(res.status === 200);
       if (res.status === 200) {
           this.router.navigateByUrl('/core');
       }
