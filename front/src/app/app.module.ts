@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} fr
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
+      HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

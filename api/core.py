@@ -41,8 +41,7 @@ def mainRoute():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if g.user:
-        print(g.user)
-        return handleResponse(200, 'text/plain', 'successful_login')
+        return redirect(url_for('index'))
     if request.method == 'POST':
         user = request.form['user']
         passwd = request.form['passwd']
@@ -50,8 +49,8 @@ def login():
         if test is None or passwd == '':
             return handleErrors(422, "invalid_credentials")
         else:
-            session['user_id'] = request.form['user']
-            print(g.user)
+            session['user_id'] = user
+            print(user)
             return handleResponse(200, 'text/plain', 'successful_login')
     return """<form action="" method="post">
                 user: <input name="user"><br>

@@ -1,24 +1,32 @@
 import os
+import uuid
+import datetime
 
 def listFiles(path):
+    filesToReturn = []
     for root, dirs, files in os.walk(path):
         for filename in files:
             print(os.path.join(root, filename))
+            filesToReturn.append(filename)
+    return filesToReturn
 
 def listPendingCertificates():
-    listFiles("./certificates/pending")
+    return listFiles("./certificates/pending")
 
 def listIssuedCertificates():
-    listFiles("./certificates/issued")
+    return listFiles("./certificates/issued")
 
 def listRevokedCertificates():
-    listFiles("./certificates/revoked")
+    return listFiles("./certificates/revoked")
 
 def createCsr(username, content):
-    f = open("guru99.txt", "w+")
-
+    date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    f = open(username+date+".csr", "w+")
+    f.write(content)
+    f.close()
 
 if __name__ == "__main__":
     listPendingCertificates()
+
     #listIssuedCertificates()
     #listRevokedCertificates()
