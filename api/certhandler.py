@@ -5,6 +5,9 @@ from OpenSSL.crypto import load_certificate_request, FILETYPE_PEM
 from utils import *
 
 def parseCert(state, id):
+    print("################################")
+    print(state, id)
+    print("################################")
     csrContent = readCert(state, id)
     req = load_certificate_request(FILETYPE_PEM, csrContent)
     key = req.get_pubkey()
