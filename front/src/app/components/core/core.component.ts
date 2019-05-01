@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-core',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoreComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+      private http: HttpClient,
+      private router: Router,
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.http.get(
+        'http://192.168.33.14/logout',
+        {observe: 'response'})
+        .subscribe(res => {
+          if(res.status === 200){
+            this.router.navigateByUrl('/login');
+          }
+    });
   }
 
 }

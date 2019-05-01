@@ -52,13 +52,17 @@ def login():
         else:
             session['user_id'] = user
             return handleResponse(200, 'application/json', "{\"msg\": \"sucessful_login\", \"user\": \" " + user +"\"}")
+
     return """<form action="" method="post">
                 user: <input name="user"><br>
                 password:<input type="password" name="passwd"><br>
                 <input type="submit" value="Submit"></form>"""
 
 
-
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)
+    return handleResponse(200, 'text/plain', "successful_logout")
 
 def handleErrors(statuscode, errorCode):
     switcher = {
