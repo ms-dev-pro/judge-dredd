@@ -28,4 +28,7 @@ export class CoreComponent implements OnInit {
     });
   }
 
+  goTo(dest: string) {
+    this.router.navigateByUrl(dest);
+  }
 }

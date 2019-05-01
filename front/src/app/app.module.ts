@@ -5,15 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatToolbarModule
+} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import { CoreComponent } from './components/core/core.component';
+import { NewCsrComponent } from './components/new-csr/new-csr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CoreComponent
+    CoreComponent,
+    NewCsrComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +36,7 @@ import { CoreComponent } from './components/core/core.component';
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

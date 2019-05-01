@@ -1,0 +1,9 @@
+mat-grid-list{
+    color: white;
+    font-weight: bold;
+}
+
+.tile-content{
+    background-color: #6DEC00;
+    padding: 50px;
+}

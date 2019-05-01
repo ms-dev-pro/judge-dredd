@@ -4,6 +4,8 @@ from flask_simpleldap import LDAP
 import uuid
 import json
 
+from filehandler import *
+
 app = Flask(__name__)
 
 app.debug = True
@@ -63,6 +65,13 @@ def login():
 def logout():
     session.pop('user_id', None)
     return handleResponse(200, 'application/json', "{\"msg\": \"sucessful_logout\"}")
+
+@app.route('/new-csr', methods=['POST'])
+@ldap.login_required
+def createPendingCsr():
+    content = json.loads(request.data)
+    createCsr(session['user_id'], content['content'])
+
 
 def handleErrors(statuscode, errorCode):
     switcher = {

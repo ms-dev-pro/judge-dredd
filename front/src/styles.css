@@ -18,3 +18,12 @@ body,
 .clickable{
     cursor: pointer;
 }
+
+.vertical-middle{
+    vertical-align: middle;
+}
+
+.text-next-icon{
+    margin-left: 10px;
+}
+

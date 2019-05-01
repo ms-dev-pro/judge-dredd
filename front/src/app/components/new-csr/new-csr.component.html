@@ -1,0 +1,13 @@
+<div class="global-container">
+  <mat-toolbar color="primary">
+    <mat-icon class="mat-icon clickable" aria-hidden="false" aria-label="back" (click)="goTo('/core')">arrow_back</mat-icon>
+  </mat-toolbar>
+
+  <div class="new-csr-container">
+    <mat-form-field>
+      <textarea cols="100" class="request-input" matInput #content placeholder="Saved Request (Base-64-encoded)"></textarea>
+    </mat-form-field>
+    <br/>
+    <button mat-flat-button color="primary" (click)="submit()">Submit request</button>
+  </div>
+</div>
