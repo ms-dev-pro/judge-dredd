@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit {
     this.http.post( 'http://192.168.33.14:8080/login', {
       user: userObject,
       passwd: passwdObject,
-    }).subscribe(res => {
+    },
+        {observe: 'response'} ).subscribe(res => {
       // @ts-ignore
-      console.log(res.status);
+      console.log(res);
       if (res.status === 200) {
           this.router.navigateByUrl('/core');
       }
