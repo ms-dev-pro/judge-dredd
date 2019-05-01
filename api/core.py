@@ -62,7 +62,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)
-    return handleResponse(200, 'application/json', "{\"msg\": \"sucessful_logout\"")
+    return handleResponse(200, 'application/json', "{\"msg\": \"sucessful_logout\"}")
 
 def handleErrors(statuscode, errorCode):
     switcher = {
