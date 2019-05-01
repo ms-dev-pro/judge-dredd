@@ -22,8 +22,7 @@ export class ListCsrComponent implements OnInit {
     private getPendingCertificates() {
         this.http.get('http://192.168.33.14:8080/list-pending-csr', {observe: 'response'}).subscribe(res => {
             if (res.status === 200) {
-                alert('LOADED');
-                console.log(res);
+                this.certificates = res.body;
             }
         });
     }
