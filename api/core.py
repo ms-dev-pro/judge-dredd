@@ -76,6 +76,8 @@ def createPendingCsr():
 @app.route('/list-pending-csr', methods=['GET'])
 @ldap.login_required
 def listPendingCsr():
+    print(listPendingCertificates())
+    print(jsonify(listPendingCertificates()))
     return handleResponse(200, 'application/json', jsonify(listPendingCertificates()))
 
 
