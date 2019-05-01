@@ -9,7 +9,7 @@
             <h3 mat-subheader>Demandes en attentes</h3>
             <mat-list-item *ngFor="let csr of pendingCertificates">
                 <mat-icon style="color:orange" mat-list-icon>note</mat-icon>
-                <a [routerLink]="['/details-cert', {mode: 'pending', id: csr}]"><h4 mat-line>{{csr}}</h4></a>
+                <a [routerLink]="['/details-cert/pending/', csr]"><h4 mat-line>{{csr}}</h4></a>
             </mat-list-item>
             <mat-divider></mat-divider>
             <h3 mat-subheader>Demandes rejetées</h3>
