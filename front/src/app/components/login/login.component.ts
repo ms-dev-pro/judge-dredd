@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
       passwd: passwdObject,
     }).subscribe(res => {
       // @ts-ignore
+      console.log(res.status);
       if (res.status === 200) {
           this.router.navigateByUrl('/core');
       }
